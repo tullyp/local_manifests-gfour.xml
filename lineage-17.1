@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="lineage"
+           fetch="https://github.com/lineageOS/" />
+
+  <remote  name="gfour"
+           fetch="ssh://git@github.com/LGgFour/"
+           revision="lineage-17.1" />
+
+ 
+  <!-- REMOVALS (must be at TOP)
+  #####################################################-->
+  <remove-project path="vendor/qcom/opensource/data-ipa-cfg-mgr" name="LineageOS/android_vendor_qcom_opensource_data-ipa-cfg-mgr" groups="qcom,pdk-qcom" />
+  <!--remove-project path="hardware/qcom/power" name="LineageOS/android_hardware_qcom_power" groups="pdk" /> -->
+
+  <!-- KERNEL
+  #####################################################-->
+  <project name="Titan-Kernel-LG-G4" path="kernel/lge/msm8992" remote="gfour" revision="staging/android-10.0" />
+
+  <!-- DEVICE TREES
+  #####################################################-->
+  <project name="android_device_lge_g4-common" path="device/lge/g4-common" remote="gfour" />
+  <project name="android_device_lge_g4" path="device/lge/g4" remote="gfour" revision="staging/lineage-17.0" />
+
+  <!-- LOS STUFF
+  #####################################################-->
+  <!--project path="hardware/sony/timekeep" name="android_hardware_sony_timekeep" remote="lineage" />-->
+  <!--project path="system/qcom" name="android_system_qcom" groups="qcom" remote="lineage"/>-->
+
+  <!-- power HAL patch
+  #####################################################-->
+  <!--project path="hardware/qcom/power" name="android_hardware_qcom_power" remote="suicide" revision="lineage-16.0_synced" />-->
+
+  <!-- MISC
+  #####################################################-->
+  <project path="vendor/lge" name="proprietary_vendor_lge" remote="gfour" revision="staging/android-10.0" />
+  <!-- backup solution without google deps -->
+  <!--project path="packages/apps/Backup" name="stevesoltys/backup" remote="github" revision="master" />-->
+</manifest>
